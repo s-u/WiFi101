@@ -420,6 +420,10 @@ uint8_t WiFiClass::begin(const char *ssid, const char *key)
 	return startConnect(ssid, M2M_WIFI_SEC_WPA_PSK, key);
 }
 
+uint8_t WiFiClass::begin(const char *ssid, const tstr1xAuthCredentials *auth) {
+	return startConnect(ssid, M2M_WIFI_SEC_802_1X, auth);
+}
+
 uint8_t WiFiClass::startConnect(const char *ssid, uint8_t u8SecType, const void *pvAuthInfo)
 {
 	if (!_init) {
